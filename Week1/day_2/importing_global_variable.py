@@ -1,0 +1,1 @@
+my_global_variable = "this is defined inside the importing_global_variable module"
