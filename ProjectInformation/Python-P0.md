@@ -10,12 +10,13 @@
 
 ## Requirements
 1. Functionality should reflect the provided user stories.
-2. Data should be stored in a database.
+2. Customer and Bank Account information should be stored in a database.
+	- validation is not required in this project, so don't create Employee data
 3. A custom stored procedure in the database should be utilized to perform some portion of the application's functionality.
 4. Data Access should be performed through the use of Psycopg3 in a data layer consisting of Data Access Objects.
 5. All requests to the application should be facilitated through Postman and handled by Flask.
 6. All requests to the application and their results should be logged in a central file.
-7. Every method should have a test validating its functionality 
+7. Every DAO and Service layer function should have a test validating its functionality 
 
 ## User Stories
 
