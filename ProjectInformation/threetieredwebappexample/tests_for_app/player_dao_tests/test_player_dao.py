@@ -11,16 +11,21 @@ def test_create_player_success():
 
 
 def test_get_player_success():
-    pass
+    returned_player: Player = player_dao_imp.get_player_information(1)
+    assert returned_player.player_id == 1
 
 
 def test_get_all_players_success():
-    pass
+    player_list = player_dao_imp.get_all_players_information()
+    assert len(player_list) >= 2
 
 
 def test_update_player_success():
-    pass
+    updated_info = Player("changed by", "update player method", 105, 1)
+    updated_player: Player = player_dao_imp.update_player_information(updated_info)
+    assert updated_player.jersey_number == updated_info.jersey_number
 
 
 def test_delete_player_success():
-    pass
+    confirm_player_deleted = player_dao_imp.delete_player_information(3)
+    assert confirm_player_deleted
