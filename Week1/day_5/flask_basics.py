@@ -25,8 +25,8 @@ person = Person("Timmy", 2837829324)
 
 
 @app.get("/")
-def landing_page(name: str):
-    return "this is the landing page"
+def landing_page():
+    return "This is the landing page"
 
 
 @app.get("/count")
