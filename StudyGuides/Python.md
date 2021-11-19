@@ -275,13 +275,59 @@ A testing framework for Python that works well for TDD.
 
 A few notes about tests:
 - If you create a test without using an assert key word the test will pass if it does not raise an exception
-- the assert keyword checks a logical statement: if the result is false the test raises an exception
+- the assert keyword checks a logical statement: if the result is a False boolean value the test raises an exception
 
 ### Flask
-Still need to implement
+Flask is a microserve that helps with the creation of web services. 
+1. run the command pip install flask
+2. create a module to hold your route information
+3. create a flask object (if you define the routes inside the same module, which I recommend, pass name with double underscores before and after as an argument into the Flask class when creating the object)
+```python
+flask_object = Flask(__name__)
+```
+4. define your routes using the @flask_object.route decorator, or one of the others
+```python
+list_of_data[]
+
+@flask_object.route("/", method=["GET])
+def get_landing_page():
+    return "this returns a basic message to the requester"
+
+@flask_object.get("/message")
+def return_message():
+    return "this is another way you could define a route to get data"
+
+@flask_object.post("/data")
+def send_data_to_app():
+    global list_of_data
+    # JSONs are the most common way of sending information across the web
+    # get_json() converts a json to a dictionary
+    data = request.get_json()
+    list_of_data.append(data[["data"]])
+    return "data added to list of data"
+
+# this list is not exhaustive
+```
 
 ### HTTP & JSON
-Still need to implement
+Hyper Text Transfer Protocol (HTTP) is the main form of communication across the internet. It is a request/response system that guarantees a response to the requester, even if it is just a message that the request failed. Using Flask, you can create routes that make use of HTTP protocols.
+```python
+@flask_object.route("/data/<path_paramater>", methods=["GET", "PATCH"])
+def data_route_with_path_param(path_param: str):
+    pass
+```
+the first string above is the "path to resource" or "path to file." It used to represent a physical file on the web server, now it is more of an abstraction handled by a web server. The <path_paramater> is a variable within the route that helps identify what data the requester is trying to access or interact with. The methods are the different HTTP verbs associated with the request: they are primarily identifiers, and you should be consistent with how you use them (make all post create data, all patches update data, etc.). The path to resource is appended to the domain name and port, so the entire request when using flask would look like the url below: the 127.0.0.1 is the domain name (could substitute with localhost) and the 5000 is the port the web server is hosted on.
+```url
+http://127.0.0.1:5000/data/<path_paramater>
+```
+GET requests are unique in that they don't allow a body to be included in their requests. Bodies are typically Javascript Object Notations (JSON). These are objects that contain data in key value pairs, and they support strings, numbers, and booleans. They follow camelCase naming conventions
+```json
+{
+    "key": "value",
+    "numbersAreSupported": 2,
+    "soAreBooleans": true
 
+}
+```
 ### Postman
-still need to implement
+Postman is an application that can quickly make http requests to our web service, which makes testing our applications much quicker. A handy feature of Postman is that it can include bodies with its requests, so you can craft jsons and send them to your web service. It can also display returned information from the web service for the user to read, which lets the user ensure their routes are functioning correctly. 
