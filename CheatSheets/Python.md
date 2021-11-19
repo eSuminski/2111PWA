@@ -45,8 +45,8 @@ as # you can set a reference to whatever it is you are importing
 ```
 #### logical operators
 ```Python
-is # use this when you want a True result when A = B
-is not # use this when you want a True result when A != B
+is # use this when you want a True result when A and B reference the same memory location
+is not # use this when you want a True result when A and B do not reference the same memory location
 and # use this when you want to set up multiple trigger conditions
 or # use this when you want to set up multiple optional trigger conditions
 if # use this when you want code to run under specified conditions
@@ -73,7 +73,7 @@ break # used to escape a loop
 ** # power of
 % # modulus
 // # floor division
-== # comparison operator
+== # comparison operator (checks if A and B have the same value)
 > # greater than
 < # less than
 >= # greater then or equal to

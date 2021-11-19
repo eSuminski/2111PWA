@@ -2,7 +2,7 @@ from data_access_layer.implementation_classes.player_dao_imp import PlayerDAOImp
 from entities.players import Player
 
 player_dao_imp = PlayerDAOImp()
-player = Player("Test", "Player", 12, 0)
+player = Player("Test", "Player", 12, 0, 1)
 
 
 def test_create_player_success():
@@ -21,7 +21,7 @@ def test_get_all_players_success():
 
 
 def test_update_player_success():
-    updated_info = Player("changed by", "update player method", 105, 1)
+    updated_info = Player("changed by", "update player method", 105, 1, 1)
     updated_player: Player = player_dao_imp.update_player_information(updated_info)
     assert updated_player.jersey_number == updated_info.jersey_number
 

@@ -5,9 +5,9 @@ from entities.players import Player
 class PlayerDAOImp(PlayerDAO):
 
     # these players are premade so that we can test our methods
-    premade_player = Player("Premade", "Player", 100, 1)
-    premade_player_two = Player("added for", "get all player test", 101, 2)
-    to_delete = Player("I exist", "to be deleted", 0, 3)
+    premade_player = Player("Premade", "Player", 100, 1, 1)
+    premade_player_two = Player("added for", "get all player test", 101, 2, 1)
+    to_delete = Player("I exist", "to be deleted", 0, 3, 1)
 
     # we are going to use this list as our "database"
     player_list = [premade_player, premade_player_two, to_delete]
