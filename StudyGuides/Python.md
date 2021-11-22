@@ -220,9 +220,7 @@ Exceptions are raised when code does not execute as intended. They are objects t
 - You can create custom errors for your application
 ```python
 class CustomError(Exception):
-    # add a message variable so you can deliver custom messages when the exception is raised
-    def __init__(self, message):
-        self.message = message
+    # the Exception class will give your custom exception everything it needs to work
 ```
 - Use try/except blocks when you think your code might fail
 ```python
