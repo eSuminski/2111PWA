@@ -287,7 +287,7 @@ flask_object = Flask(__name__)
 ```python
 list_of_data[]
 
-@flask_object.route("/", method=["GET])
+@flask_object.route("/", method=["GET"])
 def get_landing_page():
     return "this returns a basic message to the requester"
 
