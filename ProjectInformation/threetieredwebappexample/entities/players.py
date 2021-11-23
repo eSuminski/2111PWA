@@ -15,6 +15,9 @@ class Player:
             "teamId": self.team_id
         }
 
+    def __str__(self):
+        return "first name: {}, last name: {}, jersey number: {}, player ID: {}, team ID: {}".format(self.first_name, self.last_name, self.jersey_number, self.player_id, self.team_id)
+
 
 
 

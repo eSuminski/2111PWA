@@ -35,24 +35,53 @@ def create_player_entry():
 
 
 # get player information
-def get_player_information():
-    pass
+@app.get("/player/<player_id>")
+def get_player_information(player_id: str):
+    result = player_service.service_get_player_information(int(player_id))
+    result_as_dictionary = result.make_player_dictionary()
+    result_as_json = jsonify(result_as_dictionary)
+    return result_as_json
 
 
 # get all player information
+@app.get("/player")
 def get_all_players_information():
-    pass
+    players_as_players = player_service.service_get_all_players_information()
+    players_as_dictionary = []
+    for players in players_as_players:
+        dictionary_player = players.make_player_dictionary()
+        players_as_dictionary.append(dictionary_player)
+    return jsonify(players_as_dictionary)
 
 
-# update player information
-def update_player_information():
-    pass
+# update player information NEED TO REIMPLEMENT THE SERVICE LOGIC FOR THIS ROUTE
+@app.patch("/player/<player_id>")
+def update_player_information(player_id: str):
+    try:
+        player_data = request.get_json()
+        new_player = Player(
+            player_data["firstName"],
+            player_data["lastName"],
+            player_data["jerseyNumber"],
+            int(player_id),
+            player_data["teamId"]
+        )
+        updated_player = player_service.service_update_player_information(new_player)
+        return "Player updated successfully, the player info is now " + str(updated_player)
+    except DuplicateJerseyNumberException as e:
+        return str(e)
 
 
 # delete player information
-
-def delete_player_information():
-    pass
+@app.delete("/player/<player_id>")
+def delete_player_information(player_id: str):
+    result = player_service.service_delete_player_information(int(player_id))
+    if result:
+        return "Player with id {} was deleted successfully".format(player_id)
+    else:
+        # this will run if the player we try to delete is not in the database. Ideally we would
+        # instead use a try except block, but this works for now
+        return "Something went wrong: player with id {} was not deleted".format(player_id)
 
 
 app.run()

@@ -20,11 +20,10 @@ class PlayerServiceImp(PlayerService):
     def service_create_player_entry(self, player: Player) -> Player:
         # need to implement business logic
         for current_player in self.player_dao.player_list:
-            if current_player.team_id == player.team_id:
-                if current_player.jersey_number == player.jersey_number:
-                    raise DuplicateJerseyNumberException("Jersey number is already taken!")
-        else:
-            return self.player_dao.create_player_entry(player)
+            if current_player.team_id == player.team_id and current_player.jersey_number == player.jersey_number:
+                raise DuplicateJerseyNumberException("Jersey number is already taken!")
+            else:
+                return self.player_dao.create_player_entry(player)
 
     def service_get_player_information(self, player_id: int) -> Player:
         return self.player_dao.get_player_information(player_id)
@@ -35,10 +34,10 @@ class PlayerServiceImp(PlayerService):
     def service_update_player_information(self, player: Player) -> Player:
         for current_player in self.player_dao.player_list:
             if current_player.team_id == player.team_id:
-                if current_player.jersey_number == player.jersey_number:
-                    raise DuplicateJerseyNumberException("Jersey number is already taken!")
-        else:
-            return self.player_dao.update_player_information(player)
+                if current_player.player_id != player.player_id:
+                    if current_player.jersey_number == player.jersey_number:
+                        raise DuplicateJerseyNumberException("Jersey number is already taken!")
+        return self.player_dao.update_player_information(player)
 
     def service_delete_player_information(self, player_id: int) -> bool:
         return self.player_dao.delete_player_information(player_id)

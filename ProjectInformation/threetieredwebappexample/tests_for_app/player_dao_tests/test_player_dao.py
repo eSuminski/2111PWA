@@ -6,6 +6,8 @@ player = Player("Test", "Player", 12, 0, 1)
 
 
 def test_create_player_success():
+    for players in player_dao_imp.player_list:
+        print(players)
     new_player: Player = player_dao_imp.create_player_entry(player)
     assert new_player.player_id != 0
 

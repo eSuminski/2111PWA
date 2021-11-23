@@ -3,7 +3,6 @@ from entities.players import Player
 
 
 class PlayerDAOImp(PlayerDAO):
-
     # these players are premade so that we can test our methods
     premade_player = Player("Premade", "Player", 100, 1, 1)
     premade_player_two = Player("added for", "get all player test", 101, 2, 1)
@@ -35,10 +34,9 @@ class PlayerDAOImp(PlayerDAO):
                 PlayerDAOImp.player_list[index] = player
                 return player
 
-
     def delete_player_information(self, player_id: int) -> bool:
         for player_in_list in PlayerDAOImp.player_list:
             if player_in_list.player_id == player_id:
                 index = PlayerDAOImp.player_list.index(player_in_list)
                 del PlayerDAOImp.player_list[index]
-                return bool
+                return True

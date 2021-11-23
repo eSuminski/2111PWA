@@ -11,7 +11,14 @@ player_update = Player("update", "test", 100, 2, 1)
 
 def test_validate_create_player_method():
     try:
-        player_service.service_create_player_entry(player)
+        for existing_player in player_service.player_dao.player_list:
+            print(existing_player)
+        unexpected_player = player_service.service_create_player_entry(player)
+        print()
+        for existing_player in player_service.player_dao.player_list:
+            print(existing_player)
+            print()
+        print(unexpected_player.player_id)
         assert False
     except DuplicateJerseyNumberException as e:
         assert str(e) == "Jersey number is already taken!"
