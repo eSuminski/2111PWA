@@ -33,7 +33,7 @@ if True:
     # if no local variable is found it looks for an enclosing variable
     my_variable = "my enclosing variable"
     if True:
-        # Python looks for a global variable first
+        # Python looks for a local variable first
         my_variable = "my local variable"
         print(my_variable)
 ```
