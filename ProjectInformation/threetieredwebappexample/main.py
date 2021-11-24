@@ -2,14 +2,20 @@
 from flask import Flask, request, jsonify
 
 from custom_exceptions.duplicate_jersey_number_exception import DuplicateJerseyNumberException
+from custom_exceptions.duplicate_team_name_exception import DuplicateTeamNameException
 from data_access_layer.implementation_classes.player_dao_imp import PlayerDAOImp
+from data_access_layer.implementation_classes.team_dao_imp import TeamDAOImp
 from entities.players import Player
+from entities.teams import Team
 from service_layer.implementation_services.player_service_imp import PlayerServiceImp
+from service_layer.implementation_services.team_service_imp import TeamServiceImp
 
 app: Flask = Flask(__name__)
 
 player_dao = PlayerDAOImp()
 player_service = PlayerServiceImp(player_dao)
+team_dao = TeamDAOImp()
+team_service = TeamServiceImp(team_dao)
 
 
 # create player method
@@ -79,9 +85,65 @@ def delete_player_information(player_id: str):
     if result:
         return "Player with id {} was deleted successfully".format(player_id)
     else:
-        # this will run if the player we try to delete is not in the database. Ideally we would
-        # instead use a try except block, but this works for now
         return "Something went wrong: player with id {} was not deleted".format(player_id)
+
+
+@app.post("/team")
+def create_team():
+    try:
+        body = request.get_json()
+        new_team = Team(
+            body["teamId"],
+            body["name"]
+        )
+        created_team = team_service.service_create_team(new_team)
+        created_team_as_dictionary = created_team.create_team_dictionary()
+        return jsonify(created_team_as_dictionary), 201
+    except DuplicateTeamNameException as e:
+        error_message = {"errorMessage": str(e)}
+        return jsonify(error_message), 400
+
+
+@app.get("/team/<team_id>")
+def get_team_by_id(team_id: str):
+    team = team_service.service_get_team_by_id(int(team_id))
+    team_as_dictionary = team.create_team_dictionary()
+    return jsonify(team_as_dictionary), 200
+
+
+@app.get("/team")
+def get_all_teams():
+    teams = team_service.service_get_all_teams()
+    teams_as_dictionaries = []
+    for team in teams:
+        dictionary_team = team.create_team_dictionary()
+        teams_as_dictionaries.append(dictionary_team)
+    return jsonify(teams_as_dictionaries), 200
+
+
+@app.patch("/team/<player_id>")
+def update_team(player_id: str):
+    try:
+        body = request.get_json()
+        update_info = Team(
+            body["teamId"],
+            body["name"]
+        )
+        updated_player = team_service.service_update_team_information(update_info)
+        updated_player_as_dictionary = updated_player.create_team_dictionary()
+        return jsonify(updated_player_as_dictionary), 200
+    except DuplicateTeamNameException as e:
+        error_message = {"errorMessage": str(e)}
+        return jsonify(error_message)
+
+
+@app.delete("/team/<team_id>")
+def delete_team(team_id :str):
+    result = team_service.service_delete_team_information(int(team_id))
+    if result:
+        return "Team with id {} was deleted successfully".format(team_id)
+    else:
+        return "Something went wrong: team with id {} was not deleted".format(team_id)
 
 
 app.run()
