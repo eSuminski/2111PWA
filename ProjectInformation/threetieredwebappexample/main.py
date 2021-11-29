@@ -138,7 +138,7 @@ def update_team(player_id: str):
 
 
 @app.delete("/team/<team_id>")
-def delete_team(team_id :str):
+def delete_team(team_id: str):
     result = team_service.service_delete_team_information(int(team_id))
     if result:
         return "Team with id {} was deleted successfully".format(team_id)

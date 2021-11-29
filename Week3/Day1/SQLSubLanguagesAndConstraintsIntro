@@ -1,0 +1,94 @@
+-- sql stands for structured query language. It allows for the creating, altering, and manipulating
+-- of data within your database. There are 5 sublanguages of SQL, with two of them sometimes being
+-- combined into one.
+
+-- DATA DEFINITION LANGUAGE
+
+-- This subset of sql is used to create and update your tables. You will use thesee commands early
+-- when setting up your database, but after that you will not use them frequently
+
+-- create table is how you create a table: you then give the table a name, and then you
+-- list the values for the table
+create table example_table(
+	column_1 int,
+	column_2 varchar(10) -- varchar will take in any characters and make a string out of them
+);
+
+-- use alter when you need to add or remove from a table without removing the data already present
+alter table example_table add column identifier serial;
+
+-- use truncate when you want to empty a table without deleting the table
+truncate table example_table ;
+
+-- use drop when you want to delete a table and all the information inside it
+drop table example_table ;
+
+-- keep in mind: ALL THESE COMMANDS ARE PERMANENT
+
+
+-- DATA MANIPULATION LANGUAGE
+
+-- insert is used to add information to a table
+insert into example_table values (3, '!');
+
+-- update is used to change pre-existing data in our table
+update example_table set column_2 = 'world' where column_1 = 1;
+
+-- delete is used to remove data from our table
+delete from example_table where column_1 = 1;
+-- DATA QUERY LANGUAGE (sometimes combined with DML)
+
+-- use the select keyword when you want to get information from a table
+select * from example_table; -- * returns all data
+
+select column_1 from example_table; -- we can get more specific information
+
+select column_1 from example_table where column_2 = 'hello'; -- we can use the where keyword to 
+-- specify what information we want to return
+
+-- DATA CONTROL LANGUAGE
+
+-- the create keyword is used to create roles within your database. This is useful when you need
+-- to limit what a user role can and can not do (you don't want customers to be able to create and
+-- delete tables from the database, for instance).
+
+-- this long line of sql is how you could create a role that has the most basic access permissions
+create role basic_user NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN PASSWORD 'test';
+-- use the grant keyword to add permission to a role
+grant all on public to basic_user
+-- this would instead revoke all permissions to a role
+revoke specific_permission on public to basic_user
+
+-- TRANSACTION CONTROL LANGUAGE
+
+-- Dbeaver handles transactions for you, but you need to know how they work for when you connect
+-- your applications to your database. Transactions handle committing changes to a database. You
+-- can use savepoints and rollbacks to control the flow of a transaction 
+
+begin;
+	insert into example_table values (4,'name');
+	savepoint my_savepoint;
+	insert into example_table values (5, 'person');
+	rollback to savepoint my_savepoint;
+	release savepoint my_savepoint;
+commit;
+
+-- CONSTRAINTS
+-- constraints are used to either limit changes to your database or to help identify information
+-- the two main constraints we will look at are primary and foreign keys
+
+
+create table team(
+	team_id serial primary key,
+	"name" varchar(30)
+);
+
+create table player(
+	first_name varchar(20),
+	last_name varchar(20),
+	jersey_number int,
+	player_id serial primary key,
+	team_id int references team(team_id)
+	-- long way to make foreign key:
+	-- constraint foreign_key_name foreign key (team_id) references team(team_id)
+);
