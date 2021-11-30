@@ -33,8 +33,17 @@ class PlayerPostgresDAO(PlayerDAO):
         for player in player_records:
             player_list.append(Player(*player))
         return player_list
+
     def update_player_information(self, player: Player) -> Player:
-        pass
+        sql = "update player set first_name = %s, last_name = %s, jersey_number = %s, team_id = %s where player_id = %s"
+        cursor = connection.cursor()
+        cursor.execute(sql, (player.first_name, player.last_name, player.jersey_number, player.team_id, player.player_id))
+        connection.commit()
+        return player
 
     def delete_player_information(self, player_id: int) -> bool:
-        pass
+        sql = "delete from player where player_id = %s"
+        cursor = connection.cursor()
+        cursor.execute(sql, [player_id])
+        connection.commit()
+        return True

@@ -4,16 +4,18 @@ from flask import Flask, request, jsonify
 from custom_exceptions.duplicate_jersey_number_exception import DuplicateJerseyNumberException
 from custom_exceptions.duplicate_team_name_exception import DuplicateTeamNameException
 from data_access_layer.implementation_classes.player_dao_imp import PlayerDAOImp
+from data_access_layer.implementation_classes.player_postgres_dao import PlayerPostgresDAO
 from data_access_layer.implementation_classes.team_dao_imp import TeamDAOImp
 from entities.players import Player
 from entities.teams import Team
+from service_layer.implementation_services.player_postgres_service import PlayerPostgresService
 from service_layer.implementation_services.player_service_imp import PlayerServiceImp
 from service_layer.implementation_services.team_service_imp import TeamServiceImp
 
 app: Flask = Flask(__name__)
 
-player_dao = PlayerDAOImp()
-player_service = PlayerServiceImp(player_dao)
+player_dao = PlayerPostgresDAO()
+player_service = PlayerPostgresService(player_dao)
 team_dao = TeamDAOImp()
 team_service = TeamServiceImp(team_dao)
 
@@ -60,7 +62,6 @@ def get_all_players_information():
     return jsonify(players_as_dictionary)
 
 
-# update player information NEED TO REIMPLEMENT THE SERVICE LOGIC FOR THIS ROUTE
 @app.patch("/player/<player_id>")
 def update_player_information(player_id: str):
     try:
