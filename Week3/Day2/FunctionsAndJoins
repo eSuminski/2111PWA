@@ -1,0 +1,87 @@
+create table team(
+	"id" serial primary key,
+	"name" varchar(20)
+);
+
+create table player(
+	"id" serial primary key,
+	team_id int references team("id"),
+	"name" varchar(50)
+);
+
+insert into team values (default, 'angels');
+insert into team values (default, 'bears');
+insert into team values (default, 'tigers');
+insert into team values (default, 'Empty');
+
+insert into player values (default, 1, 'Timmy');
+insert into player values (default, 2, 'Sally');
+insert into player values (default, 3, 'Jimmy');
+
+insert into player values (default, 1, 'Frank');
+insert into player values (default, 2, 'Jill');
+insert into player values (default, 3, 'Sarah');
+
+insert into player values (default, 1, 'Al');
+insert into player values (default, 2, 'Sigma');
+insert into player values (default, 3, 'Ben');
+
+-- FUNCTIONS
+-- functions in SQL work similarly to functions in other coding languages: you pass in the
+-- data you want to perform some operation on, and the function performs the operation for you.
+-- PostgresSQL has two kinds of functions: aggregate and scalar. Aggregate functions work on groups
+-- of data, while scalar functions work on individual pieces of data.
+
+-- some aggregate functions (these work on GROUPS of data):
+select sum(id) from team; -- this returns the sum of all numbers provided
+
+select min(id) from team; -- returns the minimum value
+
+select max(id) from team; -- returns the maximum value
+
+select count(id) from team; -- returns the number of entries in the table
+
+select avg(id) from team; -- returns the average value from the data provided
+
+-- some scalar functions (these work on INDIVIDUAL pieces of data):
+
+select now(); -- this returns the date and time
+
+select upper(name) from team where id = 1; -- this returns text in all uppercase
+
+select lower(name) from team where id = 4; -- this returns text in all lowercase
+
+select length(name) from team where id = 1; -- the returns the length of the element
+
+create table round_example(num decimal);
+insert into round_example values(120.123456);
+
+select round(num, 2) from round_example where num = 120.123456; -- this rounds the number to the determined position
+
+-- JOINS
+-- you can use joins to take two tables and place them next to one another. The different joins
+-- can provided different ways of placing tables next to one another
+
+-- an inner join will return data that matches between the two tables.
+select * from team inner join player on team.id = player.team_id order by team.id;;
+
+-- a left join will take all of the left table (the first table you mention) and join 
+-- the second table to it. If there are no matches for the second table to the left table then
+-- null values will be shown next to the left entry.
+select * from team left join player on team.id = player.team_id order by team.id;
+
+-- this is the same as the left join above, but instead of starting with the team table we start
+-- with the player table (on the right side) and we join any matching elements from the team table
+-- to the player table.
+select * from team right join player on team.id = player.team_id order by team.id;
+
+-- this takes all of both tables and places them next to one another. Any elements without a match 
+-- will be provided null values in the other table.
+select * from team full outer join player on team.id = player.team_id order by team.id;
+
+-- you can use a cross join to show all possible combinations between your given table and the
+-- table you are doing a cross join with.
+select * from team cross join player;
+
+-- tries to auto combine columns, is very hit or miss, don't recommend using it.
+select * from team natural join player;
