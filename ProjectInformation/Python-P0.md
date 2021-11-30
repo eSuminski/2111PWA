@@ -20,19 +20,19 @@
 
 ## User Stories
 
-* As a customer, I can create a new bank account with a starting balance. (create_account)
-* As a customer, I can view the balance of a specific account. (get_account_by_id)
-* As a customer, I can make a withdrawal or deposit to a specific account. (deposit_into_account_by_id, withdraw_from_account_by_id)
-* As a customer, I can transfer money between accounts (transfer_money_between_accounts_by_their_ids)
-* As a customer, I can update my personal information (update_customer_by_id)
-* As a customer, I can view my personal information (get_customer_by_id)
-* As a customer, I can close any of my bank accounts (delete_account_by_id)
-* As a customer, I can end my buisness relationship with the bank (delete_customer_by_id)
+* I can create a new bank account with a starting balance. (create_account)
+* I can view the balance of a specific account. (get_account_by_id)
+* I can make a withdrawal or deposit to a specific account. (deposit_into_account_by_id, withdraw_from_account_by_id)
+* I can transfer money between accounts (transfer_money_between_accounts_by_their_ids)
+* I can update my personal information (update_customer_by_id)
+* I can view my personal information (get_customer_by_id)
+* I can close any of my bank accounts (delete_account_by_id)
+* I can end my buisness relationship with the bank (delete_customer_by_id)
 * As the system, I reject invalid transactions.
 	* Ex:
 		* A withdrawal that would result in a negative balance.
 		* A deposit or withdrawal of negative money.
-* As an employee, I can create new customers and add them to the system (create_new_customer)
-* As an employee, I can get a list of all the bank's customers (get_all_customers)
-* As an employee, I can get a list of all the bank accounts we manage (get_all_accounts)
-* As an employee, I can get a list of all of a client's accounts (get_all_customer_accounts_by_id)
+* I can create new customers and add them to the system (create_new_customer)
+* I can get a list of all the bank's customers (get_all_customers)
+* I can get a list of all the bank accounts we manage (get_all_accounts)
+* I can get a list of all of a client's accounts (get_all_customer_accounts_by_id)
