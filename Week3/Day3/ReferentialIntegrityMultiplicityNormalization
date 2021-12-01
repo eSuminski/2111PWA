@@ -1,0 +1,116 @@
+-- REFERENTIAL INTEGRITY
+-- Referential integrity is the practice of ensuring your database has no orphaned records. an
+-- orphaned record is one whose foreign key is either null or points to another record that does
+-- not exist. This can have very serious real life consequences.
+
+drop table team; -- I can not do this command because I have players in my player
+-- table that have foreign keys that point to teams in this table
+
+create table player(
+	first_name varchar(20),
+	last_name varchar (20),
+	jersey_number int,
+	player_id serial primary key,
+	team_id int references team(team_id) on delete cascade -- I can set up my foreign key to 
+	-- delete any player entries if the primary key it is pointing to is deleted
+);
+
+insert into player values('Brandon', 'Roy', 13, default, 1);
+
+delete from team where team_id = 1; -- because I set up my player table to delete players if their
+-- team is deleted, this action will also delete my Brandon Roy entry in the player table
+
+-- MULTIPLCITY
+-- this describes the relationship between tables: you can have a one to one,  many ot one, or many to many
+-- relationship between tables
+
+-- 1 to 1: only one entity is connected to another between tables
+create table person(
+	person_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20)
+);
+
+create table heart(
+	heart_id serial primary key,
+	person_id int unique references person(person_id) on delete cascade,
+	"condition" int
+);
+
+-- many to 1: one entity in a table has many relations (multiple foreign keys pointing at it)
+create table customer(
+	customer_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20)
+);
+
+create table account(
+	account_id serial primary key,
+	customer_id int references customer(customer_id),
+	value decimal
+);
+
+-- many to many: many entities in a table can have a connection to many entities in the other table
+create table teacher(
+	teacher_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20)
+);
+
+create table student(
+	student_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20)
+);
+
+-- we will use a join table to manage the relationship between teachers and students
+create table student_teacher_join(
+	join_id serial primary key,
+	teacher_id int references student(student_id),
+	student_id int references teacher(teacher_id)
+);
+
+-- NORMALIZATION
+-- normalization is a standardized way of organizing single tables. There are many different levels
+-- of normalization, but we will only focus on the first three
+
+-- 1NF
+	-- all columns are atomic.
+	-- I have at least one primary key
+		-- if you have more than one primary key you have what is called a composite key:
+		-- this is just a combination of multiple primary keys
+			-- potential primary keys are called candidate keys
+create table person(
+	person_id serial primary key,
+	job primary key,
+	-- first_and_last_name varchar(60), if I had this I would not be in first normal form
+	first_name varchar(20),
+	last_name varchar(20),
+	job_title varchar(30)
+);
+
+-- 2NF
+	-- all 1NF constraints must be met
+	-- there must not be any partial dependencies (all columns must reference a single primary key)
+create table person(
+	person_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20),
+	-- to make this person 2NF I had to remove the job primary key and the job title column
+);
+-- 3NF
+	-- all 2NF constraints must be met
+	-- there must be no transitive dependencies
+		-- a transitive property is one that can be determined by a combination of information 
+		-- in the other columns of the table
+create table person(
+	person_id serial primary key,
+	first_name varchar(20),
+	last_name varchar(20),
+	-- full_name varchar(60) this would be a transitive property because we could determine its
+	-- value by putting the first and last name columns together
+);
+
+-- final note on normalization: HIGHER LEVELS OF NORMALIZATION DOES NOT = BETTER TABLES 
+-- normalization is simply a standardized way of organizing your tables, you can ultimately
+-- organize them however is best suited for your application
