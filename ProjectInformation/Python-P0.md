@@ -15,7 +15,7 @@
 3. Data Access should be performed through the use of Psycopg3 in a data layer consisting of Data Access Objects.
 4. All requests to the application should be facilitated through Postman and handled by Flask.
 5. All requests to the application and their results should be logged in a central file.
-6. Every DAO and Service layer function should have a test validating its functionality 
+6. Every applicable DAO and Service layer function should have a test validating its functionality 
 
 ## User Stories
 

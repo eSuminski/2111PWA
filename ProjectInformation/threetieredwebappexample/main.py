@@ -11,6 +11,15 @@ from entities.teams import Team
 from service_layer.implementation_services.player_postgres_service import PlayerPostgresService
 from service_layer.implementation_services.player_service_imp import PlayerServiceImp
 from service_layer.implementation_services.team_service_imp import TeamServiceImp
+import logging
+
+logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asctime)s %(levelname)s %(message)s")
+# there are a few different levels of logging, going from the most inclusive to most exclusive:
+# debug
+# info
+# warning
+# error
+# critical
 
 app: Flask = Flask(__name__)
 
