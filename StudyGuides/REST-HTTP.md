@@ -3,7 +3,7 @@ Webservices are simply applications that allow for the transfering of informatio
 ## REST
 A Representational State Transfer (REST) service is a type of web service that is not directly used by humans. Instead, its inputs and outputs are in machine friendly format (think JSON, XML, etc) and this data is worked with instead of the Python/Java/Whatever data the human using the REST service is working with (the Python object, Java object, etc.). What this means is that a RESTful webservice does not send the actual object the user is working with: it sends a representation of the object accross the web. 
 ## REST Constraints
-there are 7 constraints a RESTful web service must follow to be considered a true REST webservice
+there are 6 constraints a RESTful web service must follow to be considered a true REST webservice
 1. Client - Server architecture
     - RESTful web services are not complete applications: they do not handle any client logic.
     - with this architecture, feasibly any client-side tech could interact with your server: the data being sent to the client does not HAVE to be specific to any one particular software

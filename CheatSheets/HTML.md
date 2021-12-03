@@ -27,6 +27,9 @@ all elements go inside diamond brackets <>
     - tr
     - th
     - td
+- Interaction
+    - button
+    - input
 - Miscelanious
     - img src = "url"
     - a href = "url"
