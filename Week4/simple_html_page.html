@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- This is how you create comments -->
+    <!-- All basic web pages are made up of HTML (Hyper Text Markup Language) and CSS (Cascading Style Sheet) -->
+    <h1 onclick="alert('you clicked on the header!')">This is my h1 header for my web page</h1>
+    <h6>This is my h6 header for my web page</h6>
+    <!--There are two different kinds of web elements: block and inline. 
+        Block elements stack on each other, while inline elements stay on the same line. We can see that the h and p tags are
+        block elements because they render on separate lines, but the i tags are inline elements because they render on the same line
+        as the p tag.-->
+    <p>The p <em>tag</em> is used for placing text</p> <!-- the em tags will make the tag word italicized -->
+
+    <!-- There are two common ways of creating lists inside your webpage: the ordered and unordered list -->
+
+    <h3>This is my ordered list</h3>
+    <!-- this will render just fine, but it is hard to read, even harder to edit -->
+    <ol><li>list item one</li><li>list item two</li><li>list item three</li></ol>
+
+    <h3>This is my unordered list</h3>
+    <!-- try to spread out your html so that it is easier to read for yourself and those who work on your page -->
+    <ul>
+        <li>list item one</li>
+        <li>list item two</li>
+        <li>list item three</li>
+    </ul>
+
+    <!-- Tables are a great way of storing information and making it accessable while also organizing it -->
+
+    <h3>this is my table</h3>
+    <table>
+        <!-- you need to have a thead section to create the headers for your table -->
+        <thead>
+            <tr>
+                <th>this is the header for column one</th>
+                <th>and this is the header for column two</th>
+            </tr>
+
+        </thead>
+        <!-- you place the data for the table between the tbody tags -->
+        <tbody>
+            <tr>
+                <td>actual info goes here</td>
+                <td>and here as well</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Containers are elements that can be used to organize your elements, and they become invaluable when you
+        need to apply styling to multiple elements, while excluding other elements from the styling -->
+
+    <div>
+        <!-- div elements are block element containers. Putting two next to each other will make the elements inside
+        act like block elements -->
+        <p>this is inside my first div container</p>
+    </div>
+
+    <div class="container">
+        <!-- these p elements inside these divs are acting like normal, but now we have organized them
+            and could potentially add seperate styling for them -->
+        <!-- with just these elements it might not be necessary to organize them in their own divs, but
+        if we had multiple elements inside of these divs we could use the containers to apply styling
+        to ALL of the elements held inside of them. This saves us time developing AND debugging -->
+        <p>this is inside my second div container</p>
+    </div>
+
+    <!-- Containers are good for not just applying styling, but for applying attributes in general toa ll
+    the elements inside the container -->
+
+    <div id="superDiv" class="container">
+        <h1 id="superDivHeader">This is inside my super div</h1>
+        <p id="superDivP">this text is inside my super div as well</p>
+        <ul id="superDivUl">
+            <li>this list is also part of the super div</li>
+        </ul>
+    </div>
+
+    <!-- Inputs are handy when you want to get user information. You can specify what kind of input you are
+        expecting, and you can set a name for the input, id, and more. -->
+    <input type="text" maxlength="10">
+    <input type="number">
+
+    <!-- while not exclusive to buttons, the onclick attribute is very commonly used with buttons. Buttons are
+    useful ways of prompting users to submit any information they have provided in the inputs on your web page -->
+    <button onclick="alert('you pressed the button!')">click me for a message!</button>
+</body>
+</html>
