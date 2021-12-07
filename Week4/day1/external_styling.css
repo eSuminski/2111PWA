@@ -1,0 +1,75 @@
+/* element selector */
+h3 {
+    color:cornflowerblue
+}
+
+/* id selector */
+#myId{
+    color:beige
+}
+
+/* class selector */
+.myClass{
+    color: antiquewhite;
+}
+
+/* this selects all paragraph elements that have the myClass attribute */
+p.myClass{
+    color: blue;
+}
+
+/* attribute selector */
+[onclick]{
+    color: brown;
+}
+
+/* grouping selector */
+h4, h5{
+    color: whitesmoke;
+}
+
+/* child & descendant selectors */
+
+/* this is a child selector: any element that is a child (think nested inside) the parent is selected */
+div > p{
+    color: darkorchid;
+}
+
+/* this is a descendant selector: the element being selected does not need to be a direct descendatn like a child
+selector needs to be. */
+div p {
+    color: goldenrod;
+}
+
+/* general & adjacent siblings */
+
+/* general sibling selector searches for all instances of an element that occor after the first element appears
+inside your html */
+div ~ p{
+    color: forestgreen;
+}
+
+/* adjacent sibling selector checks to see if the next element is the indicated one, and if so, applies styling to it*/
+div + p{
+    color:powderblue
+}
+
+/* psudo class & psudo element selectors */
+
+/* psudo class selectors are when you need to target the state of an element, not the element itself */
+p:hover{
+    color: mediumspringgreen;
+}
+
+/* psudo element selector is useful when you need to target a part of an element that is not normally available
+under the dom */
+p::first-letter{
+    color: saddlebrown;
+}
+
+/* There is an order of operations when it comes to selectors. This list goes from highest to lowest priority
+- inline css
+- id selector
+- class selector & psudo class selector
+- element & psudo element selector
+*/
