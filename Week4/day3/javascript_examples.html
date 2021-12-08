@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <div id="container">
+        <p>this is my paragraph</p>
+    </div>
+</body>
+<script>
+    let phrase = "5" >= "5"; // this will return true, if it was "4" >= "5" it would be false
+    console.log(phrase);
+
+    let looseEqualityOperatorsInAction = 5 == "5";
+
+    let strictEqualityInAction = 5 === "5";
+
+    console.log(looseEqualityOperatorsInAction);
+    console.log(strictEqualityInAction);
+
+    // it can be useful when writing JS to wrap your code in functions and to place those functions inside a JS
+    // file that is referenced by a script element inside your html page. This can allow for cleaner code, but the
+    // way you organize your code is ultimately up to you
+
+    function myFunction(){
+        return "This is my basic function";
+    };
+
+    console.log(myFunction());
+
+    // despite clearly expecting numbers, this will work with other data types as well
+    function someMath(num, num2){
+        return num + num2;
+    };
+
+    console.log(someMath(5,5));
+
+    console.log(someMath("five", "five")); // this will perform string concatonation
+
+    // annonymous functions are functions that are assigned to a variable
+
+    let myAnonymousFunction = function(){
+        return "this is my anonymous function in action";
+    };
+
+    console.log(myAnonymousFunction());
+
+    // self-invoking functions are functions that are called immediately after they are declared
+
+    (function(){
+        return console.log("this will print immediately");
+    })();
+
+    // callback functions are functions that take in other functions as arguments
+
+    function sayHello(name, jdlksajdlkajla){ //like any function, the name here is just the reference for the potential argument that will be passed in
+        return jdlksajdlkajla(name);
+    };
+
+    function callbackFunction(name){
+        return "Hello " + name;
+    };
+
+    console.log(sayHello("Eric", callbackFunction))
+
+    // a closure is a function that can access variables and arguments that are defined in an outer function
+    function outerFunction(){
+        let variable = "this is a variable";
+        function innerFunction(){
+            return variable;
+        };
+        return innerFunction();
+    }
+
+    console.log(outerFunction());
+
+    // you can also create arrow functions using arrow notation. They do not work with the "this" keyword, so
+    // don't use them with objects
+
+    let func = () => "Hello world!";
+    console.log(func());
+
+    let multiLine = (num1, num2) =>{
+        let sum = num1 + num2;
+        return sum;
+    };
+
+    console.log(multiLine(2,3));
+
+    let math = a => a + 10; // you can also just declare the paramaters without ()
+
+    console.log(math(5));
+
+    // to interact with your html you need to use the document key word.
+
+    let container = document.getElementById("container");
+
+    console.log(container.innerText); // this just returns the text in the paragraph element
+    console.log(container.innerHTML); // this also includes the tags for the paragraph element
+
+    // there a couple selectors you can use to grab content from your html
+    /*
+    getElementByID
+    getElementByClassName
+    getElementByTagName
+    querySelector
+        - this takes in multiple css selectors, applies the content of the first element found that matches the argument
+    querySelectorAll
+        - same as querySelector, but it will return all the content of every element that matches the arguments
+    */
+
+
+
+
+
+</script>
+</html>
