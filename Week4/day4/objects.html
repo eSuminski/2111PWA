@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // objects are basically a collection of key value pairs. The key is a property, and you assign it a value using a colon
+    let myObject = {
+        key:"value",
+        key2:10
+    };
+
+    console.log(myObject.key);
+
+    // you can assign a function to a property, just make sure to call it properly when you want to use it (add () to the end of it when you call it)
+    let myFunctionObject ={
+        func:function(){return "This is my function assinged to the func property"}
+    };
+
+    console.log(myFunctionObject.func());
+
+    // I can change the value of my properties
+
+    myFunctionObject.func = "new value";
+
+    console.log(myFunctionObject.func);
+
+    // objects can inherit from one another: you use the __proto__ key word and assign the parent class using a colon
+    let parent = {
+        talk:true,
+        walk:true
+    }
+
+    let child = {
+        __proto__:parent
+    }
+
+    console.log(child.talk);
+    console.log(child.walk);
+</script>
+</html>

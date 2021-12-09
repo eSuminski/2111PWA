@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- this is an easy way to make the button do something when it is rendered, but what if we dynamically  make a button render? -->
+    <button id="button" onclick="callAlert()">click me to make something happen</button>
+    <div id="div">
+        <p id="p">
+            <a id="a" href="">
+                This text is nestled inside three elements
+            </a>
+        </p>
+    </div>
+</body>
+<script>
+    let dynamicButton = document.createElement("button");
+    dynamicButton.textContent = "dynamic button";
+    document.body.appendChild(dynamicButton);
+    // this is the function I want to run when the new button is pressed
+    function callAlert(){
+        return alert("something happened")
+    }
+    // I can add an event listener to my new button to make it pop an alert when I click on it
+    dynamicButton.addEventListener("click",callAlert/*optional boolean value*/);
+
+    // capturing is where events propogate from the parent element down to the lowest child element
+    function showTag(){
+        alert(`this tag is ${this.tagName}`);
+    }
+
+    let div = document.getElementById("div");
+    let p = document.getElementById("p");
+    let a = document.getElementById("a");
+
+    // this is an example of bubbling: event propagation starts at the lowest level child, and works its way up
+    let elements = [div, p, a];
+    for (let element of elements){
+        element.addEventListener("click", showTag);
+    }
+
+    for (let element of elements){
+        element.removeEventListener("click", showTag);
+    }
+
+    // this is an example of capturing: event propagation starts at the highest level node and works its way down
+    for (let element of elements){
+        element.addEventListener("click", showTag, true);
+    }
+</script>
+</html>
