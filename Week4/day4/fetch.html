@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Using PokeAPI to get Pokemon Information</h1>
+    <br>
+    <input type="number" id="numberInput">
+    <button id="getData">get Pokemon data!</button>
+    <section id="data">
+
+    </section>
+
+
+    <script src="fetch_example.js"></script>
+</body>
+<script>
+    // Asynchronous Programming and JavaScript
+/*
+JavaScript is an event-driven language: you do NOT want to block the event que. While the que is blocked, NOTHING
+else will happen until the event is completed. This can happen if you have an event that takes a LONG time to finish.
+
+To get around this, many methods will return a promise object to free up the event que. This promise object is an empty object
+that will eventually hold the data you expect when it becomes available
+*/
+
+// to make a function asyncronous you add the async keyword to the function declaration
+
+async function getUser(){
+    const user = await sendUserInfo(username, password);
+}
+
+// order of operations
+/*
+    promise is created
+    code continues to run
+    promise is replaced by actual data when it is available
+*/
+
+// it is common to use async await with the fetch api. The fetch api is built in to browsers and allows for the creation of
+// http requests
+
+// const response = await fetch(url, {method:"POST", body:"usually a json"});
+// const body = await response.json();
+</script>
+</html>
