@@ -1,5 +1,6 @@
 """this is where my API will go: I will create a flask object here and define my routes and their functions here"""
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 from custom_exceptions.duplicate_jersey_number_exception import DuplicateJerseyNumberException
 from custom_exceptions.duplicate_team_name_exception import DuplicateTeamNameException
@@ -22,6 +23,8 @@ logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asct
 # critical
 
 app: Flask = Flask(__name__)
+CORS(app)
+
 
 player_dao = PlayerPostgresDAO()
 player_service = PlayerPostgresService(player_dao)
@@ -68,7 +71,7 @@ def get_all_players_information():
     for players in players_as_players:
         dictionary_player = players.make_player_dictionary()
         players_as_dictionary.append(dictionary_player)
-    return jsonify(players_as_dictionary)
+    return jsonify(players_as_dictionary), 200
 
 
 @app.patch("/player/<player_id>")
