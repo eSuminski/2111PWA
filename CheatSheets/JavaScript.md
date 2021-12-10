@@ -10,8 +10,6 @@
     - can be written using OOP design
 - interpreted
     - line by line compilation and execution
-- case sensitive
-    - should seperate statemets with ;
 - can place inside html via script tags
     - can reference it exeternally:
 ```html
