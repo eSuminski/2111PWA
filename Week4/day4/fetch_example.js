@@ -6,6 +6,10 @@ const url = "https://pokeapi.co/api/v2/pokemon/";
 let button = document.getElementById("getData");
 button.onclick = getData;
 let data = document.getElementById("data");
+let x = 10
+do{
+    console.log(x);
+} while (x < 10)
 
 async function getData(){
     let userInput = document.getElementById("numberInput");
