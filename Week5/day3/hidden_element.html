@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hidden Element</title>
+</head>
+<body>
+    <h1>Press the button to display an alert!</h1>
+    <button id="button" onclick="alert('good job!')" hidden="true">Press me to create an alert!</button>
+</body>
+<script>
+    const button = document.getElementById("button")
+    setTimeout(function(){button.hidden = false}, 3000)
+
+</script>
+</html>
