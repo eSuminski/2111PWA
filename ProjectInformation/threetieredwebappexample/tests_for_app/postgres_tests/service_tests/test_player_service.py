@@ -6,7 +6,7 @@ from service_layer.implementation_services.player_postgres_service import Player
 player_dao = PlayerPostgresDAO()
 player_service = PlayerPostgresService(player_dao)
 
-player_with_duplicate_jersey = Player("first", "last", 200, 0, 1)
+player_with_duplicate_jersey = Player("first", "last", 300000, 0, 1)
 
 
 def test_catch_duplicate_jersey_number_for_create_method():

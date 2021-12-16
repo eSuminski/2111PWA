@@ -11,7 +11,7 @@ random_names.add("Susie")
 
 random_name = random_names.pop()
 
-update_player = Player(random_name, "player", 200, 12, 1)
+update_player = Player(random_name, "player", 7, 7, 1)
 
 player_to_delete = Player(random_names.pop(), random_names.pop(), 0, 0, 1)
 
@@ -22,8 +22,8 @@ def test_create_player_success():
 
 
 def test_get_player_success():
-    brandon_roy = player_dao.get_player_information(1)
-    assert brandon_roy.first_name == "Brandon" and brandon_roy.last_name == "Roy"
+    luke = player_dao.get_player_information(1)
+    assert luke.first_name == "Luke" and luke.last_name == "Suminski"
 
 
 def test_get_all_players_success():

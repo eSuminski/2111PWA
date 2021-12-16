@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async Await Review</title>
+</head>
+<body>
+    <h1>Check the conole logs for some information!</h1>
+</body>
+<script>
+    function returnNumber(){
+        return 5;
+    }
+    console.log(returnNumber())
+
+    // an async function will return a promise: this function is returning a promise that has the # 5 attached to it
+    async function returnAnotherNumber(){
+        return 5;
+    }
+
+    console.log(returnAnotherNumber())
+
+    // if we use the await keyword the function will stop executing at the line where the await keyword is, and will wait for its promise
+    // to be fulfilled. This allows the rest of your JS to continue executing, and when the promise is fulfilled the function continues
+    async function returnNumberUsingAwait(){
+        return await 5;
+    }
+
+    console.log(returnNumberUsingAwait())
+
+    // if we remove the await from line 38 we will see the promise object in the console (which is holding thepokemon information)
+    // but not the data directly.
+    async function getPokeInfo(){
+        // your JS will stop the execution of the getPokeInfo function at line 36 until the promise is fulfilled
+        // aka: the http request we make gets its response
+        let response = await fetch("https://pokeapi.co/api/v2/pokemon/1")
+        // we use the await keyword here in order for our promise object to be unpacked
+        let body = await response.json()
+        console.log(body)
+        console.log(response)
+    }
+
+    getPokeInfo()
+</script>
+</html>

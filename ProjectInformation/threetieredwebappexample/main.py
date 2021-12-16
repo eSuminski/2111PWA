@@ -4,14 +4,15 @@ from flask_cors import CORS
 
 from custom_exceptions.duplicate_jersey_number_exception import DuplicateJerseyNumberException
 from custom_exceptions.duplicate_team_name_exception import DuplicateTeamNameException
-from data_access_layer.implementation_classes.player_dao_imp import PlayerDAOImp
+from data_access_layer.implementation_classes.login_dao_postgres import LoginPostgresDAO
 from data_access_layer.implementation_classes.player_postgres_dao import PlayerPostgresDAO
-from data_access_layer.implementation_classes.team_dao_imp import TeamDAOImp
+from data_access_layer.implementation_classes.team_postgres_dao import TeamPostgresDAO
+from entities.login import Login
 from entities.players import Player
 from entities.teams import Team
+from service_layer.implementation_services.login_postgres_service import LoginPostgresService
 from service_layer.implementation_services.player_postgres_service import PlayerPostgresService
-from service_layer.implementation_services.player_service_imp import PlayerServiceImp
-from service_layer.implementation_services.team_service_imp import TeamServiceImp
+from service_layer.implementation_services.team_postgres_service import TeamPostgresService
 import logging
 
 logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asctime)s %(levelname)s %(message)s")
@@ -25,11 +26,12 @@ logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asct
 app: Flask = Flask(__name__)
 CORS(app)
 
-
 player_dao = PlayerPostgresDAO()
 player_service = PlayerPostgresService(player_dao)
-team_dao = TeamDAOImp()
-team_service = TeamServiceImp(team_dao)
+team_dao = TeamPostgresDAO()
+team_service = TeamPostgresService(team_dao)
+login_dao = LoginPostgresDAO()
+login_service = LoginPostgresService(login_dao)
 
 
 # create player method
@@ -157,6 +159,19 @@ def delete_team(team_id: str):
         return "Team with id {} was deleted successfully".format(team_id)
     else:
         return "Something went wrong: team with id {} was not deleted".format(team_id)
+
+
+@app.post("/login")
+def login():
+    body = request.get_json()
+    login_credentials = Login(body["username"], body["password"])
+    validated = login_service.validate_login(login_credentials.username, login_credentials.password)
+    if validated:
+        message = {"validated": True}
+        return jsonify(message)
+    else:
+        message = {"validated": False}
+        return jsonify(message)
 
 
 app.run()
