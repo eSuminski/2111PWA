@@ -42,6 +42,7 @@ hs_err_pid*
 .idea/**/aws.xml
 
 # Generated files
+*.idea
 .idea/**/contentModel.xml
 
 # Sensitive or high-churn files
