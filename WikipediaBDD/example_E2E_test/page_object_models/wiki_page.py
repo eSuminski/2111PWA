@@ -9,12 +9,12 @@ class WikiHomePage:
 
     def select_english_link(self):
         # this will return the web element with the given id
-        element: WebElement = self.driver.find_element(By.ID,"js-link-box-en")
+        element: WebElement = self.driver.find_element(By.ID, "js-link-box-en")
         return element
 
     def select_spanish_link(self):
         # this will return the web element with the given css selector
-        element: WebElement = self.driver.find_element(By.CSS_SELECTOR,'div[lang="es"]')
+        element: WebElement = self.driver.find_element(By.CSS_SELECTOR, 'div[lang="es"]')
         return element
 
     def select_italian_link(self):
@@ -32,5 +32,9 @@ class WikiHomePage:
         return element
 
     def select_search_button(self):
-        element:WebElement = self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
+        element: WebElement = self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
         return element
+
+    def get_title_text(self):
+        element: WebElement = self.driver.find_element(By.XPATH, '//*[@id="www-wikipedia-org"]/div[1]/h1/span')
+        return element.text
