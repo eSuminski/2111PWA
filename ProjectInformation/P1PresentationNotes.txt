@@ -1,0 +1,5 @@
+1. share your github repo link
+2. show off Unit and Integrated tests (pytest)
+3. show off E2E tests (make sure Flask is running)
+4. walk us through your application, showing off all the user stories
+5. Show off any extra features you added

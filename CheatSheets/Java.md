@@ -95,7 +95,17 @@
 |protected|within same package and sub-classes|
 |default (no keyword)|within same package|
 |private|within same class|
+## Non-Access Modifiers
+|modifier|effect|
+|--------|------|
+|abstract|can't be instantiated (class) or must be implemented (method)|
+|static| ties properties and behaviors to the class|
+|final| final classes can't be extended, variables can't be changed, methods can't be overridden|
+|synchronized|helps prevent deadlock in threading|
+|transient| make a variable non-serializable|
 ## stack & heap
 - the heap is where objects are stored in memory (and the string pool)
 - the stack is where local variables references and method invocations are stored
     - a new stack frame is created for each method invocation
+## Primitive Types
+|type|size|

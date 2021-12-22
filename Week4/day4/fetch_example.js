@@ -32,6 +32,7 @@ async function getData(){
 function populateData(json){
     let pokeName = document.createElement("h3")
     pokeName.textContent = json.name;
+    pokeName.id = `${json.name}HeaderID`
     data.appendChild(pokeName);
     let abilityList = document.createElement("ul");
     let abilities = json.abilities;
