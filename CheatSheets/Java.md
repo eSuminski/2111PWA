@@ -108,4 +108,13 @@
 - the stack is where local variables references and method invocations are stored
     - a new stack frame is created for each method invocation
 ## Primitive Types
-|type|size|
+```java
+boolean bool;
+byte b; // 8 bit
+short s; // 16 bit
+char c; // 16 bit
+int i; // 32 bit
+long l; //64 bit
+float f; // 32 bit
+double d; // 64 bit
+```
