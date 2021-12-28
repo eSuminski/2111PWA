@@ -3,9 +3,11 @@ package dev.revature.playertests;
 import dev.revature.entities.Player;
 import dev.revature.interactwithdatabase.PlayerDAO;
 import dev.revature.interactwithdatabase.PlayerDAOImp;
+import org.postgresql.util.PSQLException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class PlayerDAOTests {
