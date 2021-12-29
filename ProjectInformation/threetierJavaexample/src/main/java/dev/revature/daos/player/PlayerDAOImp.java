@@ -79,7 +79,23 @@ public class PlayerDAOImp implements PlayerDAO{
 
     @Override
     public Player createPlayer(Player player) {
-        return null;
+        try (Connection connection = ConnectionBasics.createConnection()){
+           String sql = "insert into player values(?, ?, ?, default, ?)";
+           PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+           preparedStatement.setString(1, player.getFirstName());
+           preparedStatement.setString(2, player.getLastName());
+           preparedStatement.setInt(3, player.getJerseyNumber());
+           preparedStatement.setInt(4, player.getTeamId());
+           preparedStatement.execute();
+           ResultSet resultSet = preparedStatement.getGeneratedKeys();
+           resultSet.next();
+           player.setPlayerId(resultSet.getInt("player_id"));
+           return player;
+
+        } catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
