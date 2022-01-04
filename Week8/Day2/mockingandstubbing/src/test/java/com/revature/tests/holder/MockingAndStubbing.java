@@ -56,4 +56,10 @@ public class MockingAndStubbing {
         Mockito.verify(maths, VerificationModeFactory.times(3)).division(30,2);
     }
 
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void stubbingException(){
+        Mockito.when(maths.division(2,2)).thenThrow(new ArithmeticException("adding this to show mocking exception"));
+        calculator.evenOdd(2,2);
+    }
+
 }

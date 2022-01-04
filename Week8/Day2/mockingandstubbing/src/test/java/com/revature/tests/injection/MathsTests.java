@@ -11,4 +11,9 @@ public class MathsTests {
     public void checkDivision(){
         Assert.assertEquals(maths.division(10,5), 2);
     }
+
+    @Test(expectedExceptions = ArithmeticException.class, expectedExceptionsMessageRegExp = "adding this to show mocking exception")
+    public void checkException(){
+        maths.division(1,1);
+    }
 }
