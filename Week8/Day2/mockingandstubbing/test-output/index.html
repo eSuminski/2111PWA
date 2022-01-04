@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Example_Suite_for_my_tests">
+              <span class="suite-name border-failed">Example Suite for my tests</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Example_Suite_for_my_tests">
+                    <span>C:\Users\EricSuminski\Desktop\2111PWA\Week8\Day2\mockingandstubbing\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Example_Suite_for_my_tests">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Example_Suite_for_my_tests">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Example_Suite_for_my_tests">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Example_Suite_for_my_tests">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Example_Suite_for_my_tests">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Example_Suite_for_my_tests">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Example_Suite_for_my_tests" class="hide-methods failed suite-Example_Suite_for_my_tests"> (hide)</a> <!-- hide-methods failed suite-Example_Suite_for_my_tests -->
+                      <a href="#" panel-name="suite-Example_Suite_for_my_tests" class="show-methods failed suite-Example_Suite_for_my_tests"> (show)</a> <!-- show-methods failed suite-Example_Suite_for_my_tests -->
+                    </span>
+                    <div class="method-list-content failed suite-Example_Suite_for_my_tests">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Example_Suite_for_my_tests" title="com.revature.tests.holder.MockingAndStubbing" hash-for-method="checkMethodCallAndInputs">checkMethodCallAndInputs</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Example_Suite_for_my_tests -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Example_Suite_for_my_tests" class="hide-methods passed suite-Example_Suite_for_my_tests"> (hide)</a> <!-- hide-methods passed suite-Example_Suite_for_my_tests -->
+                      <a href="#" panel-name="suite-Example_Suite_for_my_tests" class="show-methods passed suite-Example_Suite_for_my_tests"> (show)</a> <!-- show-methods passed suite-Example_Suite_for_my_tests -->
+                    </span>
+                    <div class="method-list-content passed suite-Example_Suite_for_my_tests">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Example_Suite_for_my_tests" title="com.revature.tests.injection.MathsTests" hash-for-method="checkDivision">checkDivision</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Example_Suite_for_my_tests" title="com.revature.tests.holder.MockingAndStubbing" hash-for-method="checkNumberOfMethodCalls">checkNumberOfMethodCalls</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Example_Suite_for_my_tests" title="com.revature.tests.holder.MockingAndStubbing" hash-for-method="controlReturnValueWithStubbing">controlReturnValueWithStubbing</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Example_Suite_for_my_tests" title="com.revature.tests.holder.MockingAndStubbing" hash-for-method="determineReturnValue">determineReturnValue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Example_Suite_for_my_tests -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Example_Suite_for_my_tests" class="panel Example_Suite_for_my_tests">
+          <div class="suite-Example_Suite_for_my_tests-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.revature.tests.holder.MockingAndStubbing</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkMethodCallAndInputs">
+                  </a> <!-- checkMethodCallAndInputs -->
+                  <span class="method-name">checkMethodCallAndInputs</span>
+                  <div class="stack-trace">org.mockito.exceptions.verification.ArgumentsAreDifferent: Argument(s) are different! Wanted:
+maths.division(20, 4);
+-&gt; at com.revature.tests.holder.MockingAndStubbing.checkMethodCallAndInputs(MockingAndStubbing.java:45)
+Actual invocations have different arguments:
+maths.division(20, 5);
+-&gt; at dev.revature.holder.Calculator.evenOdd(Calculator.java:14)
+
+	at com.revature.tests.holder.MockingAndStubbing.checkMethodCallAndInputs(MockingAndStubbing.java:45)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Example_Suite_for_my_tests-class-failed -->
+          <div class="suite-Example_Suite_for_my_tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.revature.tests.injection.MathsTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDivision">
+                  </a> <!-- checkDivision -->
+                  <span class="method-name">checkDivision</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Example_Suite_for_my_tests-class-passed -->
+          <div class="suite-Example_Suite_for_my_tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.revature.tests.holder.MockingAndStubbing</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkNumberOfMethodCalls">
+                  </a> <!-- checkNumberOfMethodCalls -->
+                  <span class="method-name">checkNumberOfMethodCalls</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="controlReturnValueWithStubbing">
+                  </a> <!-- controlReturnValueWithStubbing -->
+                  <span class="method-name">controlReturnValueWithStubbing</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="determineReturnValue">
+                  </a> <!-- determineReturnValue -->
+                  <span class="method-name">determineReturnValue</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Example_Suite_for_my_tests-class-passed -->
+        </div> <!-- panel Example_Suite_for_my_tests -->
+        <div panel-name="test-xml-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\EricSuminski\Desktop\2111PWA\Week8\Day2\mockingandstubbing\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Example Suite for my tests&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Injection Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.revature.tests.injection.MathsTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Injection Tests --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Holder Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.revature.tests.holder.MockingAndStubbing&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Holder Tests --&gt;
+&lt;/suite&gt; &lt;!-- Example Suite for my tests --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Example Suite for my tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Injection Tests (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Holder Tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Example Suite for my tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Example Suite for my tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Example_Suite_for_my_tests');
+function tableData_Example_Suite_for_my_tests() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(5);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'checkMethodCallAndInputs')
+data.setCell(0, 2, 'com.revature.tests.holder.MockingAndStubbing')
+data.setCell(0, 3, 49);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'checkDivision')
+data.setCell(1, 2, 'com.revature.tests.injection.MathsTests')
+data.setCell(1, 3, 8);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'controlReturnValueWithStubbing')
+data.setCell(2, 2, 'com.revature.tests.holder.MockingAndStubbing')
+data.setCell(2, 3, 8);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'checkNumberOfMethodCalls')
+data.setCell(3, 2, 'com.revature.tests.holder.MockingAndStubbing')
+data.setCell(3, 3, 3);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'determineReturnValue')
+data.setCell(4, 2, 'com.revature.tests.holder.MockingAndStubbing')
+data.setCell(4, 3, 1);
+window.suiteTableData['Example_Suite_for_my_tests']= { tableData: data, tableDiv: 'times-div-Example_Suite_for_my_tests'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 69 ms</span>
+              <div id="times-div-Example_Suite_for_my_tests">
+              </div> <!-- times-div-Example_Suite_for_my_tests -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Example Suite for my tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Example_Suite_for_my_tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.revature.tests.injection.MathsTests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">checkDivision</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.revature.tests.holder.MockingAndStubbing</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">62 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">checkMethodCallAndInputs</span>
+                <span class="method-start">834 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkNumberOfMethodCalls</span>
+                <span class="method-start">891 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">controlReturnValueWithStubbing</span>
+                <span class="method-start">894 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">determineReturnValue</span>
+                <span class="method-start">902 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

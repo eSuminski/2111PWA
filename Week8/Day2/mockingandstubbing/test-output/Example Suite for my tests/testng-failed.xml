@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Example Suite for my tests]">
+  <test thread-count="5" name="Holder Tests(failed)">
+    <classes>
+      <class name="com.revature.tests.holder.MockingAndStubbing">
+        <methods>
+          <include name="setup"/>
+          <include name="checkMethodCallAndInputs"/>
+        </methods>
+      </class> <!-- com.revature.tests.holder.MockingAndStubbing -->
+    </classes>
+  </test> <!-- Holder Tests(failed) -->
+</suite> <!-- Failed suite [Example Suite for my tests] -->
