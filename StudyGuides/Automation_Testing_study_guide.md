@@ -271,3 +271,67 @@ Severity and Priority are two different metrics for determining how much a defec
     - this would be annoying for those who are trying to fix or change their names in the database, but it does not break the ability for the app to do its intended job, so fixing something like the wrong logo on the landing page would be higher priority to fix first
 ## logging defects
 If defect reports are a way of managing bugs as they arrise, logging defects is a way of recording them for posterity. Again, the means of handling defect logging should be available to you in the test strategy/plan documentation, but for your own projects you will want to create a system of codifying and logging the bugs your application runs into. This can be useful for tracking any persistent bugs: knowing that your login system constantly bugs out may indicate you need to rework it from the ground up. Having the log is a good means of determining if such a drastic measure is warranted.
+## Testing Types
+There are more kinds of tests than just the unit/integration tests:
+
+- Functional Testing
+    - These are tests that make sure a function is working
+    - it is very basic: given the right input, does this function do what I want it to do?
+    - optimization is irrelevant to this test: you just need to know if the test works or not
+    - System testing (End to End testing)
+    - These are tests that check the entirety of an application
+    - do the front end and back end work together as intended?
+    - These are often run from the user experience: will I be logged in correctly if I enter my login credentials?
+- UAT (User Acceptance Testing)
+    - These are tests to determine the user-friendliness of your application
+        - very subjective, must be done manually
+        - is the app intuitive?
+        - is it pleasant to look at?
+        - is the app responsive?
+        - how hard do I need to think to use the app?
+        - can involve alpha and beta testing
+            - Alpha testing is when developers do the UAT
+            - Beta testing is when end users test the application
+                - what is intuitive to the developer may not be to the end user
+- Performance Testing
+    - These tests help determine the efficiency of your application
+        - These tests can check the time, memory, or processing efficiency of the application
+- Load Testing
+    - tests how well the application can handle multiple users
+        - can test expected traffic, heavy traffic, light traffic, etc.
+        - is common to load traffic until app breaks to find the limit of the app
+- Stress Testing
+    - tests the application in unusual scenarios
+        - what if 100 people try and choose the same username at the same time?
+        - what if 10,000 people login at the same time?
+        - what if 500 people try to buy the same 5 items at once?
+- Endurance testing
+    - These are the same as load test, but over a longer period of time
+        - these tests are for finding those errors that take a long time to discover
+            - what happens if a log file gets too large?
+            - is there a memory leak?
+- Spike test
+    - these tests help determine how well (or how poorly) your application can scale
+        - most modern apps perform auto-scaling, so the number of server handling requests increase or decrease depending on the traffic
+## Data Driven Testing
+Data Driven testing is a form of testing where the test data is stored in some form of spreadsheet, both the inputs and the outputs. The advantage of this is that all the test data is available in a single location: you can see what data is going into the tests, and what material is being returned from the test. By seperating the the test data from the functions performing the tests you make it easier to reuse tests in different parts of your application. Where this can fall apart, however, is if you have an incredibly large ammount of data and functionality to test. By design, Data Driven Testing creates a lot more paperwork than just Automated Testing. With Automated testing you only need to see the generated report, but with Data Driven testing you also need to check the inputs in your test spreadsheet. The extra paperwork also means you have more documentation to write, something that is harder to automate than with simple Automation testing.
+## Quality Assurance vs Quality Control
+These two topics both drive towards the same goal: a high level of functionality, efficiency, and good structure in an application. The difference between the two is that Assurance is a mindset that must be determined before the project is started, and Control is a reactive process that refines the application
+- Quality Assurance
+    - this is a proactive philosophy
+        - How are we going to design the application in a way that includes quality gates and standards?
+            - what are our coding standards?
+                - Python methods must be type annotated
+            - what are our testing standards?
+                - every method must have a positive, negative, and at least two edge case tests
+            - what are our documentation standards?
+                - all modules, classes, and methods must have a docstring
+            - what are our development standards?
+                - all github merges must be approved by a senior developer
+- Quality Control
+    - this is a reactive process
+        - are there bugs that need to be fixed?
+        - do reports need to be revamped?
+        - do any methods need to be updated
+        - have all features been added to the automated reports?
+        - is a server down that needs to be rebooted?
