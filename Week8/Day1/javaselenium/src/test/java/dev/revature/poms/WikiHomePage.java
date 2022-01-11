@@ -1,5 +1,6 @@
 package dev.revature.poms;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WikiHomePage {
     private WebDriver driver;
+    private By searchBar = By.id("searchInput");
+    private By searchButton = By.className("pure-button");
 
     public WikiHomePage(WebDriver driver){
         this.driver = driver;
@@ -24,4 +27,14 @@ public class WikiHomePage {
 
     @FindBy(xpath = "/html/body/div[2]/div[8]/a")
     public WebElement italian;
+
+    public void sendKeysToSearchBar(String keys){
+        driver.findElement(searchBar).sendKeys(keys);
+    }
+
+    public void clickSearchButton(){
+        driver.findElement(searchButton).click();
+    }
+
+
 }

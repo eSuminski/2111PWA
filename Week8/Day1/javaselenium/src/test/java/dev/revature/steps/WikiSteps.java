@@ -46,4 +46,19 @@ public class WikiSteps {
         String title = TestRunner.driver.getTitle();
         Assert.assertEquals(title, "Wikipedia, l'enciclopedia libera");
     }
+
+    @When("The user enters {string} into the search bar")
+    public void the_user_enters_into_the_search_bar(String string) {
+        TestRunner.wikiHomePage.sendKeysToSearchBar(string);
+    }
+
+    @When("The user clicks the search button")
+    public void the_user_clicks_the_search_button() {
+        TestRunner.wikiHomePage.clickSearchButton();
+    }
+
+    @Then("The user should be redirected to the {string} page")
+    public void the_user_should_be_redirected_to_the_page(String string) {
+        Assert.assertEquals(TestRunner.driver.getTitle(), string);
+    }
 }

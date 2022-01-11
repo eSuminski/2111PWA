@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 // a class file will only use steps from that class
 // to run your E2E test you run this TestRunner class
 // needs to be called TestRunner, any other name and the test will fail
-@CucumberOptions(features = "classpath:features", glue = "dev/revature/steps")
+@CucumberOptions(features = "classpath:features", glue = "dev/revature/steps", plugin = {"pretty", "html:src/test/resources/reports/html-reports.html"})
 public class TestRunner{
     public static WebDriver driver;
     public static WikiHomePage wikiHomePage;
