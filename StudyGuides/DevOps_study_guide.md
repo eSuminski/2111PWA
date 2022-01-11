@@ -68,3 +68,35 @@ Amazon's Elastic Compute Cloud (EC2) is a web service that provides secure, resi
 
 - Elasticity
     - The "Elasticity" of EC2s is their ability to auto scale both up and down: when your system has higher demand the instance can add more processing power to handle the load, and when the traffic dies down it can revert to a lower processing power, saving you money in the long run.
+### EC2 Autoscaling
+Autoscaling is the ability to automatically have instances added or removed to help run your application as needed. This helps improve fault tolerance, increase application availability, and reduce operation costs.The basic steps to start autoscaling are:
+1. Create a launch template
+    - specify the Amazon Machine Image (AMI), instances type, key pair, and security groups etc.
+2. Create an auto scaling group
+    - you can increase the number of instances to improve your application performance and also you can decrease the number of instances depending on the load to reduce your cost. The auto-scaling group also maintains a fixed number of instances even if an instance becomes unhealthy.
+3. Verify your auto scaling group
+4. Customize your autoscaling plan
+    - You can schedule scaling, set dynamic scaling, or predictive scaling
+### AMI
+Amazon Machine Images are like the blueprints for instances: they contain the data and specifics you want to create your instances. They contain the following:
+- One or more EBS snapshots.
+- Launch permissions that control which AWS accounts can use the AMI to launch instances.
+- A block device mapping that specifies the volumes to attach to the instance when it's launched.
+### Maven Life Cycle
+There are 8 stages to the maven life cycle, each of them can be called seperately to perform different operations on your code. 
+1. validate
+    - validates that your project information is correct and all necessary pieces are available
+2. compile
+    - compiles the source code of the project
+3. test
+    - this stage takes your compiled code and, using a suitable testing framework (you must set this up in the pom) tests your application. 
+4. package
+    - takes the compiled code and packages it in a distributable format, like a JAR file
+5. integration
+    - runs any integration tests on your packaged application
+6. verify
+    - does a quality check on your integration tests
+7. install
+    - installs the package in a local repository
+8. deploy
+    - this is done in the build enviornment, this step copies the final pacakge to a remote repository for sharing with others (either for further development or to deploy to users)
