@@ -77,7 +77,22 @@ Autoscaling is the ability to automatically have instances added or removed to h
 3. Verify your auto scaling group
 4. Customize your autoscaling plan
     - You can schedule scaling, set dynamic scaling, or predictive scaling
+### Elastic Block Store
+Elastic Block Stores are like portable harddrives for your EC2 instances. You can move them between instances, and they can persist even if you shut down all your instances. You can dynamically change their size, and you only pay for what you use. They are tied to specific Available zones, and can only be used by instances within those zones. You can get around this by saving "snapshots" of your EBS to an S3 bucket. Snapshots are incremental backups, meaning only the blocks on the device that have changed after your most recent snapshot are saved.
+
+How to create an EBS:
+
+1. Sign into AWS using your administrator account.
+2. Navigate to the EC2 Console.
+3. Choose a EC2 setup region from the Region drop-down list at the top of the page.
+4. Select Volumes in the Navigation pane.
+5. Click Create Volume.
+6. Click Create.
+7. Choose Actions, then Create Snapshot.
+8 Type name_you_want.Backup in the Name field, type enter a description in the Description field, and then click Create.
+9. Click Close. The volume is ready to use.
 ### AMI
+
 Amazon Machine Images are like the blueprints for instances: they contain the data and specifics you want to create your instances. They contain the following:
 - One or more EBS snapshots.
 - Launch permissions that control which AWS accounts can use the AMI to launch instances.
@@ -100,3 +115,34 @@ There are 8 stages to the maven life cycle, each of them can be called seperatel
     - installs the package in a local repository
 8. deploy
     - this is done in the build enviornment, this step copies the final pacakge to a remote repository for sharing with others (either for further development or to deploy to users)
+### Jenkins
+Jenkins is a popular open source devops tool: it allows you to create a devops pipeline where your pushes to the main github repo can trigger jenkins to download your code to your EC2, build it, and run it. There are many steps involved, and not all are necessary depending on the type of program you are running and whether you are doing CI, CD, or CD. See the revamped pipeline instruction markdown file in Week9 to see basic setup instructions for all three DevOps practices
+### Code Quality Tools
+Code quality tools can help you find code "smells" in your application. These are things like:
+- Data security issues
+- Bugs
+- confusing code
+- redundant code
+- unused imports
+- empty code blocks
+- etc.
+Most IDEs have code quality tools built in, but there are some more options that can provide more in-depth analysis of your code:
+- SonarCloud
+    - A cloud code analyizer that can review code loaded into a cloud-based repository, like github
+        - Navigate to the Sonar Cloud Login Page, and select "Log in with Github"
+        - Click on "Analyze your code" and follow the steps for project setup
+        - Select the repository to analyze.
+        - fix code smells as necessary
+- SonarQube
+    - A code review tool that can be built into a devops pipeline. Because it is more configurable it could been seen as more powerful
+- SonarLint
+    - an opensource plugin for many ides, it can be installed from your IDE's plugin marketplace. For Python you would install the pylint package from PyPi
+### Hosting Static Sites on S3
+You can configure an S3 bucket to host static webpages for you (static webpages are those that have no server-side rendering). This is a useful hosting solution for your application, allowing you to deploy your app without the need to host any part on your local computer
+- Click on your bucket in your S3 Management Console
+- Select Upload and upload your html/css/js files/folders.
+- Select Properties
+- Select Static website hosting
+- Select Use this bucket to host a website, enter the name of the file we're hosting (the landing page)
+- Return to your bucket, click on the uploaded files, click Make public.
+- Visit the Object URL and you will see your static webpage hosted on your configured S3 bucket!
