@@ -75,3 +75,8 @@ the history command will print a list of all the commands entered in the current
 ```cli
 history
 ```
+to change directories you use the cd command, ../ will take you up one level
+```cli
+cd new/directory
+cd ../
+```
