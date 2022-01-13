@@ -313,6 +313,10 @@ There are more kinds of tests than just the unit/integration tests:
 - Spike test
     - these tests help determine how well (or how poorly) your application can scale
         - most modern apps perform auto-scaling, so the number of server handling requests increase or decrease depending on the traffic
+- Whitebox testing
+    - testing code you have access to
+- Blackbox testing
+    - testing code you don't have access to
 ## Data Driven Testing
 Data Driven testing is a form of testing where the test data is stored in some form of spreadsheet, both the inputs and the outputs. The advantage of this is that all the test data is available in a single location: you can see what data is going into the tests, and what material is being returned from the test. By seperating the the test data from the functions performing the tests you make it easier to reuse tests in different parts of your application. Where this can fall apart, however, is if you have an incredibly large ammount of data and functionality to test. By design, Data Driven Testing creates a lot more paperwork than just Automated Testing. With Automated testing you only need to see the generated report, but with Data Driven testing you also need to check the inputs in your test spreadsheet. The extra paperwork also means you have more documentation to write, something that is harder to automate than with simple Automation testing.
 ## Quality Assurance vs Quality Control
