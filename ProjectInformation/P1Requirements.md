@@ -10,8 +10,6 @@ You are tasked with creating an expense reimbursement system for a small company
 - Manager
     - A Manager can view all reimbursements past and pending
     - A Manager can appove or deny any reimbursement
-    - Managers can view statistics about reimbursements that include information like what employee spends the most money, mean expenditure costs, etc...
-        - at least 5 statistics should be available for view
 
 ### Key Notes
 - you do NOT have to allow for the creation of employees or managers.
@@ -27,8 +25,8 @@ You are tasked with creating an expense reimbursement system for a small company
 - Backend should be a RESTful web service
     - You may have to a make a non-REST compliant endpoint for login. This is normal.
 - AWS postgres RDS should be used to persist information
-- All DAO methods should have at least one test verifying they work
-- All Service methods with logic should have at least one test verifying they work
+- All DAO methods should have at least three tests verifying they work
+- All Service methods with logic should have at least three tests verifying they work
 - There should be logging in the application
 - There should be at minimum a login page, employee homepage, and manager homepage
     - all web pages should have styling applied to them
@@ -49,7 +47,6 @@ You are tasked with creating an expense reimbursement system for a small company
     - as a manager, I should be able to leave a comment about my decisions regarding reimbursement requests so employees better understand my decisions
     - as a manager, I should be able to view pending reimbursement requests so I can make decisions about them
     - as a manager, I should be able to view past reimbursement requests so I can check previous decisions
-    - as a manager, I should be able to view reimbursement statistics so I can keep track of employee acitvities
     - as a manager, I should be able to log out so my information does not remain available on my computer
 - System
     - as the system, I should reject failed login attempts
