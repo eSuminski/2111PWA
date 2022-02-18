@@ -34,5 +34,3 @@ You can expect the following training mediums in this course:
 - Projects
 - Quizzes
 - Mock Interviews 
-
-
