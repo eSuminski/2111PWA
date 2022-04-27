@@ -59,6 +59,7 @@
             - export BUILD_ID=dontkillme
                 - leaves application running after build is finished
             - nohup java -jar javaFileInTargetFolder.ext &
+                - fuser -k {port-id}/tcp will kill the process in the background  
             - nohup keeps process running even after exiting build(exiting terminal or shell)
             - & makes the app run in the background
 - in your github repo, add webhook payload
